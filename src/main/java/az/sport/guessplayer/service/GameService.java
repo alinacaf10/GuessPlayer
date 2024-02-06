@@ -16,11 +16,12 @@ final PlayerRepository playerRepository;
 
     public String compareResult(String name) {
         String result = "";
-        Player playerClient = playerRepository.findByName(name);
-        Optional<Player> playerServer = playerRepository.findById(1);
-        if (playerClient.getAge() > playerServer.get().getAge()) {
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(1);
+        Player playerServer=playerOptional.get();
+        if (playerClient.getAge() > playerServer.getAge()) {
             result += "Down Age";
-        } else if (playerClient.getAge() < playerServer.get().getAge()) {
+        } else if (playerClient.getAge() < playerServer.getAge()) {
             result += "Up Age";
         } else {
             result += "True Age";
