@@ -14,10 +14,11 @@ final PlayerRepository playerRepository;
         this.playerRepository = playerRepository;
     }
 
+    final Integer id = 2;
     public String compareAge(String name) {
         String result;
         Player playerClient = playerRepository.findByNameContains(name);
-        Optional<Player> playerOptional = playerRepository.findById(1);
+        Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer=playerOptional.get();
         if (playerClient.getAge() > playerServer.getAge()) {
             result = "Down Age";
@@ -32,7 +33,7 @@ final PlayerRepository playerRepository;
     public String compareKitNum(String name) {
         String result;
         Player playerClient = playerRepository.findByNameContains(name);
-        Optional<Player> playerOptional = playerRepository.findById(1);
+        Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer=playerOptional.get();
         if (playerClient.getKitNumber() > playerServer.getKitNumber()) {
             result = "Down Kit Number";
@@ -47,7 +48,7 @@ final PlayerRepository playerRepository;
     public String comparePosition(String name) {
         String result;
         Player playerClient = playerRepository.findByNameContains(name);
-        Optional<Player> playerOptional = playerRepository.findById(1);
+        Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getPosition().equals(playerClient.getPosition())) {
             result = "True Position";
@@ -59,7 +60,7 @@ final PlayerRepository playerRepository;
     public String compareCountry(String name) {
         String result;
         Player playerClient = playerRepository.findByNameContains(name);
-        Optional<Player> playerOptional = playerRepository.findById(1);
+        Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getCountry().equals(playerClient.getCountry())) {
             result = "True Country";
@@ -71,7 +72,7 @@ final PlayerRepository playerRepository;
     public String compareLeague(String name) {
         String result;
         Player playerClient = playerRepository.findByNameContains(name);
-        Optional<Player> playerOptional = playerRepository.findById(1);
+        Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getLeague().equals(playerClient.getLeague())) {
             result = "True League";
@@ -83,12 +84,25 @@ final PlayerRepository playerRepository;
     public String compareTeam(String name) {
         String result;
         Player playerClient = playerRepository.findByNameContains(name);
-        Optional<Player> playerOptional = playerRepository.findById(1);
+        Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getTeam().equals(playerClient.getTeam())) {
             result = "True Team";
         } else {
             result = "False Team";
+        }
+        return result;
+    }
+
+    public String compareName(String name) {
+        String result;
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(id);
+        Player playerServer = playerOptional.get();
+        if (playerServer.getName().equals(playerClient.getName())) {
+            result = "True Name";
+        } else {
+            result = "False Name";
         }
         return result;
     }

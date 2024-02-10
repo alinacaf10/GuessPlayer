@@ -36,6 +36,7 @@ public class    GameController {
         result += "\n" + gameService.compareCountry(name);
         result += "\n" + gameService.compareLeague(name);
         result += "\n" + gameService.compareTeam(name);
+        result += "\n" + gameService.compareName(name);
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 }
