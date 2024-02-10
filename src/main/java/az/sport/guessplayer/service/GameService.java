@@ -14,30 +14,45 @@ final PlayerRepository playerRepository;
         this.playerRepository = playerRepository;
     }
 
-    public String compareAgeResult(String name) {
-        String result = "";
+    public String compareAge(String name) {
+        String result;
         Player playerClient = playerRepository.findByNameContains(name);
         Optional<Player> playerOptional = playerRepository.findById(1);
         Player playerServer=playerOptional.get();
         if (playerClient.getAge() > playerServer.getAge()) {
-            result += "Down Age";
+            result = "Down Age";
         } else if (playerClient.getAge() < playerServer.getAge()) {
-            result += "Up Age";
+            result = "Up Age";
         } else {
-            result += "True Age";
+            result = "True Age";
         }
         return result;
-    }public String compareKitNumResult(String name) {
-        String result = "";
+    }
+
+    public String compareKitNum(String name) {
+        String result;
         Player playerClient = playerRepository.findByNameContains(name);
         Optional<Player> playerOptional = playerRepository.findById(1);
         Player playerServer=playerOptional.get();
         if (playerClient.getKitNumber() > playerServer.getKitNumber()) {
-            result += "Down Kit Number";
+            result = "Down Kit Number";
         } else if (playerClient.getKitNumber() < playerServer.getKitNumber()) {
-            result += "Up Kit Number";
+            result = "Up Kit Number";
         } else {
-            result += "True Kit Number";
+            result = "True Kit Number";
+        }
+        return result;
+    }
+
+    public String comparePosition(String name) {
+        String result;
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(1);
+        Player playerServer = playerOptional.get();
+        if (playerServer.getPosition().equals(playerClient.getPosition())) {
+            result = "True Position";
+        } else {
+            result = "False Position";
         }
         return result;
     }
