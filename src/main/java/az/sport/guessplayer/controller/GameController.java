@@ -27,6 +27,8 @@ public class    GameController {
     }
     @GetMapping("/guess")
     public ResponseEntity<String> guessPlayer(@RequestParam String  name){
-        return new ResponseEntity<>(gameService.compareResult(name),HttpStatus.OK);
+        String result = gameService.compareAgeResult(name);
+        result+="\n "+gameService.compareKitNumResult(name);
+        return new ResponseEntity<>(result,HttpStatus.OK);
     }
 }

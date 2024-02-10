@@ -14,7 +14,7 @@ final PlayerRepository playerRepository;
         this.playerRepository = playerRepository;
     }
 
-    public String compareResult(String name) {
+    public String compareAgeResult(String name) {
         String result = "";
         Player playerClient = playerRepository.findByNameContains(name);
         Optional<Player> playerOptional = playerRepository.findById(1);
@@ -25,6 +25,19 @@ final PlayerRepository playerRepository;
             result += "Up Age";
         } else {
             result += "True Age";
+        }
+        return result;
+    }public String compareKitNumResult(String name) {
+        String result = "";
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(1);
+        Player playerServer=playerOptional.get();
+        if (playerClient.getKitNumber() > playerServer.getKitNumber()) {
+            result += "Down Kit Number";
+        } else if (playerClient.getKitNumber() < playerServer.getKitNumber()) {
+            result += "Up Kit Number";
+        } else {
+            result += "True Kit Number";
         }
         return result;
     }
