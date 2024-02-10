@@ -33,6 +33,9 @@ public class    GameController {
         String result = gameService.compareAge(name);
         result += "\n" + gameService.compareKitNum(name);
         result += "\n" + gameService.comparePosition(name);
+        result += "\n" + gameService.compareCountry(name);
+        result += "\n" + gameService.compareLeague(name);
+        result += "\n" + gameService.compareTeam(name);
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 }

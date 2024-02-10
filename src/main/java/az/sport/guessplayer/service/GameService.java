@@ -56,4 +56,40 @@ final PlayerRepository playerRepository;
         }
         return result;
     }
+    public String compareCountry(String name) {
+        String result;
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(1);
+        Player playerServer = playerOptional.get();
+        if (playerServer.getCountry().equals(playerClient.getCountry())) {
+            result = "True Country";
+        } else {
+            result = "False Country";
+        }
+        return result;
+    }
+    public String compareLeague(String name) {
+        String result;
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(1);
+        Player playerServer = playerOptional.get();
+        if (playerServer.getLeague().equals(playerClient.getLeague())) {
+            result = "True League";
+        } else {
+            result = "False League";
+        }
+        return result;
+    }
+    public String compareTeam(String name) {
+        String result;
+        Player playerClient = playerRepository.findByNameContains(name);
+        Optional<Player> playerOptional = playerRepository.findById(1);
+        Player playerServer = playerOptional.get();
+        if (playerServer.getTeam().equals(playerClient.getTeam())) {
+            result = "True Team";
+        } else {
+            result = "False Team";
+        }
+        return result;
+    }
 }
