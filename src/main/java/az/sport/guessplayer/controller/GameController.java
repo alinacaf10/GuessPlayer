@@ -30,13 +30,14 @@ public class    GameController {
     }
     @GetMapping("/guess")
     public ResponseEntity<String> guessPlayer(@RequestParam String  name){
-        String result = gameService.compareAge(name);
-        result += "\n" + gameService.compareKitNum(name);
-        result += "\n" + gameService.comparePosition(name);
-        result += "\n" + gameService.compareCountry(name);
-        result += "\n" + gameService.compareLeague(name);
-        result += "\n" + gameService.compareTeam(name);
-        result += "\n" + gameService.compareName(name);
+        String result ="<h4>" +gameService.compareName(name)+"</h4>";
+        result += gameService.compareCountry(name);
+        result += gameService.compareLeague(name);
+        result += gameService.compareTeam(name);
+        result += gameService.comparePosition(name);
+        result += gameService.compareAge(name);
+        result += gameService.compareKitNum(name)+"</p>";
+        result+="<br> NAT LGE TEAM POS AGE SHIRT";
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 }

@@ -21,11 +21,11 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer=playerOptional.get();
         if (playerClient.getAge() > playerServer.getAge()) {
-            result = "Down Age";
+            result = playerClient.getAge()+"↓";
         } else if (playerClient.getAge() < playerServer.getAge()) {
-            result = "Up Age";
+            result = playerClient.getAge()+"↑";
         } else {
-            result = "True Age";
+            result = playerClient.getAge()+"☑";
         }
         return result;
     }
@@ -36,11 +36,11 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer=playerOptional.get();
         if (playerClient.getKitNumber() > playerServer.getKitNumber()) {
-            result = "Down Kit Number";
+            result = playerClient.getKitNumber()+"↓";
         } else if (playerClient.getKitNumber() < playerServer.getKitNumber()) {
-            result = "Up Kit Number";
+            result = playerClient.getKitNumber()+"↑";
         } else {
-            result = "True Kit Number";
+            result =playerClient.getKitNumber()+" ☑ ";
         }
         return result;
     }
@@ -51,9 +51,9 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getPosition().equals(playerClient.getPosition())) {
-            result = "True Position";
+            result =  playerClient.getPosition()+ " ☑ ";
         } else {
-            result = "False Position";
+            result = playerClient.getPosition()+  " ⓧ ";
         }
         return result;
     }
@@ -63,9 +63,9 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getCountry().equals(playerClient.getCountry())) {
-            result = "True Country";
+            result = playerClient.getCountry()+ " ☑ ";
         } else {
-            result = "False Country";
+            result = playerClient.getCountry()+ " ⓧ ";
         }
         return result;
     }
@@ -75,9 +75,9 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getLeague().equals(playerClient.getLeague())) {
-            result = "True League";
+            result = playerClient.getLeague()+" ☑ ";
         } else {
-            result = "False League";
+            result = playerClient.getLeague() + " ⓧ ";
         }
         return result;
     }
@@ -87,9 +87,9 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getTeam().equals(playerClient.getTeam())) {
-            result = "True Team";
+            result = playerClient.getTeam()+" ☑ ";
         } else {
-            result = "False Team";
+            result = playerClient.getTeam()+" ⓧ ";
         }
         return result;
     }
@@ -100,9 +100,9 @@ final PlayerRepository playerRepository;
         Optional<Player> playerOptional = playerRepository.findById(id);
         Player playerServer = playerOptional.get();
         if (playerServer.getName().equals(playerClient.getName())) {
-            result = "True Name";
+            result = playerClient.getName()+" ☑ ";
         } else {
-            result = "False Name";
+            result = playerClient.getName()+" ⓧ ";
         }
         return result;
     }
